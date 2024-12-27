@@ -79,6 +79,23 @@ class _LoginState extends State<Login> {
                   )
                 ],
               )),
+          MaterialButton(
+              height: 40,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              color: Colors.blueAccent[700],
+              textColor: Colors.white,
+              onPressed: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Login With Facebook "),
+                  Image.asset(
+                    "assets/images/facebook.png",
+                    width: 20,
+                  )
+                ],
+              )),
           Container(height: 20),
           // Text("Don't Have An Account ? Resister" , textAlign: TextAlign.center,)
           InkWell(
