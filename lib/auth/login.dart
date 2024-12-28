@@ -24,13 +24,17 @@ class _LoginState extends State<Login> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(height: 50),
+
               const CustomLogoAuth(),
               Container(height: 20),
-              const Text("Login",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+              const Align(
+                alignment: Alignment.center,
+                child:  Text("Login",style: TextStyle(fontSize: 30, fontWeight:FontWeight.bold,color: Colors.orange)),
+              ),
               Container(height: 10),
-              const Text("Login To Continue Using The App",
-                  style: TextStyle(color: Colors.grey)),
+             const Align(
+              child:  Text("Login To Continue Using The App",
+                  style: TextStyle(color: Colors.grey)),),
               Container(height: 20),
               const Text(
                 "Email",
@@ -100,7 +104,7 @@ class _LoginState extends State<Login> {
           // Text("Don't Have An Account ? Resister" , textAlign: TextAlign.center,)
           InkWell(
             onTap: () {
-              Navigator.of(context).pushNamed("signup") ;
+              Navigator.of(context).pushReplacementNamed("signup") ;
             },
             child: const Center(
               child: Text.rich(TextSpan(children: [
