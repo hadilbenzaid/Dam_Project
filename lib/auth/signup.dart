@@ -55,7 +55,7 @@ class _SignUpState extends State<SignUp> {
               ),
               Container(height: 10),
               CustomTextForm(
-                  hinttext: "ُEnter Your Password", mycontroller: email),
+                  hinttext: "ُEnter Your Password", mycontroller: password),
               Container(height: 20),
               const Text(
                 "Confirme your Password",
