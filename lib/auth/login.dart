@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:restaurant/components/custombuttonauth.dart';
 import 'package:restaurant/components/customlogoauth.dart';
 import 'package:restaurant/components/textformfield.dart';
+import 'package:restaurant/home.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -50,7 +52,7 @@ class _LoginState extends State<Login> {
               ),
               Container(height: 10),
               CustomTextForm(
-                  hinttext: "ُEnter Your Password", mycontroller: email),
+                  hinttext: "ُEnter Your Password", mycontroller: password),
               Container(
                 margin: const EdgeInsets.only(top: 10, bottom: 20),
                 alignment: Alignment.topRight,
@@ -63,7 +65,28 @@ class _LoginState extends State<Login> {
               ),
             ],
           ),
-          CustomButtonAuth(title: "login", onPressed: () {}),
+          CustomButtonAuth(title: "login", onPressed: () async {
+            try {
+
+              UserCredential userCredential = await FirebaseAuth.instance
+                  .signInWithEmailAndPassword(
+                email: email.text.trim(),
+                password: password.text.trim(),
+              );
+
+              Navigator.of(context).pushReplacementNamed("home");
+            } on FirebaseAuthException catch (e) {
+              if (e.code == 'user-not-found') {
+                print('No user found for that email.');
+              } else if (e.code == 'wrong-password') {
+                print('Wrong password provided for that user.');
+              }
+            } catch (e) {
+              print(e);
+            }
+          },
+          ),
+
           Container(height: 20),
 
           MaterialButton(

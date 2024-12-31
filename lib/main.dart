@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:restaurant/auth/login.dart';
 import 'package:restaurant/auth/signup.dart';
+import 'package:restaurant/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,19 +19,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp>{
-  //@override
-  //void initState() {
-   //FirebaseAuth.instance.authStateChanges().listen((User? user){
-     //if(user == null){
-       //print('user is currently signed out');
-     //}else{
-      // print('user is sign in');
-    // }
-  // }
+  @override
+  void initState() {
 
-  // );
- //   super.initState();
- // }
+  super.initState();
+   FirebaseAuth.instance.authStateChanges().listen((User? user){
+     if(user != null){
+       Navigator.of(context).pushReplacementNamed("home");
+     }else{
+       Navigator.of(context).pushReplacementNamed("login");
+     }
+   }
+
+   );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +43,7 @@ class _MyAppState extends State<MyApp>{
      routes: {
        "signup" : (context) => SignUp() ,
        "login" : (context) => Login(),
-       //"home" : (context) => Home()
+      "home" : (context) => Home()
      },
    );
   }
