@@ -41,7 +41,7 @@ class _ConstantineState extends State<Constantine> {
       restaurants: [
         Restaurant(
           name: 'Le Bey Restaurant',
-          imageUrl: 'assets/images/lebey.jpg', // You'll need to add these images
+          imageUrl: 'assets/images/lebey.jpg',
           phone: '+213 31 92 45 45',
           description: 'Restaurant raffiné avec une vue panoramique sur Constantine. Spécialisé dans la cuisine traditionnelle et moderne.',
           address: 'Hôtel Novotel Constantine, Route de l\'aéroport, Constantine',
@@ -86,6 +86,7 @@ class _ConstantineState extends State<Constantine> {
           rating: 4.1,
         ),
       ],
+
     ),
     Category(
       name: 'Desserts',
